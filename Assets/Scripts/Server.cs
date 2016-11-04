@@ -49,8 +49,7 @@ public class Server : MonoBehaviour
 
 		while (frame < currentFrame + frameInterval)
 		{
-			frame += Mathf.FloorToInt(Time.deltaTime * 60f);
-			//Debug.Log(frame);
+			frame += Mathf.CeilToInt(Time.deltaTime * 60f);
 
 			yield return new WaitForEndOfFrame();
 		}
@@ -80,6 +79,7 @@ public class Server : MonoBehaviour
 				if (!simulating)
 				{
 					simulating = true;
+
 					StartCoroutine(SimulateRoutine());
 				}
 
